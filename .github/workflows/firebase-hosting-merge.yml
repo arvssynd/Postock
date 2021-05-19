@@ -17,3 +17,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_POSTOCK_583A8 }}'
           channelId: live
           projectId: postock-583a8
+          entryPoint: "./Postock" 
