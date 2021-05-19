@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://bpf.animasgr.it/home/performance/',
+  apiGraphUrl: 'https://bpf.animasgr.it/api/performance/'
 };
 
 /*
