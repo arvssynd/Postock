@@ -1,5 +1,22 @@
-<div>
-  {{performanceDate}}
-  <br>
-  VALORE QUOTA GIORNO PRECEDENTE: {{yesterdayPrice}}
+<div class="card">
+  <div class="card-body">
+    <div class="quotation-date">
+      <h6>{{performanceDate}}</h6>
+    </div>
+    <div class="quotation-values">
+      <div>
+        <h5><b>ULTIMO VALORE QUOTA
+            <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}"> {{quotationLastPrice}} </span></b></h5>
+      </div>
+      <div>
+        <h5>Var. Ultima Quotazione <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}">{{lastQuotationVariation}}
+            <i class="fas fa-arrow-circle-up" *ngIf="valueIsUp"></i>
+            <i class="fas fa-arrow-circle-down" *ngIf="!valueIsUp"></i>
+          </span></h5>
+      </div>
+      <div>
+        <h5>{{yesterdayPrice}}</h5>
+      </div>
+    </div>
+  </div>
 </div>
