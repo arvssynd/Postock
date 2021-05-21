@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StockService } from 'src/services/stock.service';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { UtilitiesService } from 'src/utilities/utilities.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,15 @@ import { StockService } from 'src/services/stock.service';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    StockService
+    StockService,
+    UtilitiesService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

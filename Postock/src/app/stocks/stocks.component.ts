@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from 'src/services/stock.service';
+import { UtilitiesService } from 'src/utilities/utilities.service';
 
 @Component({
   selector: 'app-stocks',
@@ -11,10 +12,18 @@ export class StocksComponent implements OnInit {
   public yesterdayPrice: string = "";
   public lastQuotationVariation: string = "";
   public quotationLastPrice: string = "";
+  public load = false;
   public valueIsUp = true;
-  constructor(private stockService: StockService) { }
+  public lastUpdate = new Date().toLocaleString();
+  public isMobile = false;
+
+  constructor(
+    private stockService: StockService,
+    private utilitiesService: UtilitiesService) { }
 
   ngOnInit(): void {
+    this.isMobile = this.utilitiesService.isMobile();
+    this.utilitiesService.startSpinner();
     this.getQBUO();
   }
 
@@ -31,6 +40,10 @@ export class StocksComponent implements OnInit {
       if (this.lastQuotationVariation.indexOf("-") >= 0) {
         this.valueIsUp = false;
       }
+
+      this.utilitiesService.stopSpinner();
+      this.load = true;
+      this.lastUpdate = new Date().toLocaleString();
     });
   }
 }

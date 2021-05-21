@@ -1,21 +1,46 @@
-<div class="card">
-  <div class="card-body">
-    <div class="quotation-date">
-      <h6>{{performanceDate}}</h6>
-    </div>
-    <div class="quotation-values">
-      <div>
-        <h5><b>ULTIMO VALORE QUOTA
-            <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}"> {{quotationLastPrice}} </span></b></h5>
+<div *ngIf="load">
+  <div class="last-update">
+    <small>ULTIMO AGGIORNAMENTO: {{lastUpdate}}</small>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="quotation-date">
+        <h6>{{performanceDate}}</h6>
       </div>
-      <div>
-        <h5>Var. Ultima Quotazione <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}">{{lastQuotationVariation}}
-            <i class="fas fa-arrow-circle-up" *ngIf="valueIsUp"></i>
-            <i class="fas fa-arrow-circle-down" *ngIf="!valueIsUp"></i>
-          </span></h5>
-      </div>
-      <div>
-        <h5>{{yesterdayPrice}}</h5>
+      <div class="quotation-values">
+        <div class="row last-quotation-price" *ngIf="isMobile">
+          <div class="col-md-6">
+            <h5><b>ULTIMO VALORE QUOTA</b></h5>
+          </div>
+          <div class="col-md-6">
+            <h5><b><span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}"> {{quotationLastPrice}} </span></b></h5>
+          </div>
+        </div>
+        <div class="last-quotation-price" *ngIf="!isMobile">
+          <h5><b>ULTIMO VALORE QUOTA
+              <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}"> {{quotationLastPrice}} </span></b></h5>
+        </div>
+        <div class="row last-quotation-variation" *ngIf="isMobile">
+          <div class="col-md-6">
+            <h5>Var. Ultima Quotazione</h5>
+          </div>
+          <div class="col-md-6">
+            <h5><span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}">{{lastQuotationVariation}}
+                <i class="fas fa-arrow-circle-up" *ngIf="valueIsUp"></i>
+                <i class="fas fa-arrow-circle-down" *ngIf="!valueIsUp"></i>
+              </span></h5>
+          </div>
+        </div>
+        <div class="last-quotation-variation" *ngIf="!isMobile">
+          <h5>Var. Ultima Quotazione
+            <span [ngClass]="{'up': valueIsUp, 'down': !valueIsUp}">{{lastQuotationVariation}}
+              <i class="fas fa-arrow-circle-up" *ngIf="valueIsUp"></i>
+              <i class="fas fa-arrow-circle-down" *ngIf="!valueIsUp"></i>
+            </span></h5>
+        </div>
+        <div>
+          <h5 class="yesterday-price">{{yesterdayPrice}}</h5>
+        </div>
       </div>
     </div>
   </div>
