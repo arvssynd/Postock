@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/services/shared.service';
 import { StockService } from 'src/services/stock.service';
 import { UtilitiesService } from 'src/utilities/utilities.service';
 
@@ -19,9 +20,13 @@ export class StocksComponent implements OnInit {
 
   constructor(
     private stockService: StockService,
-    private utilitiesService: UtilitiesService) { }
+    private utilitiesService: UtilitiesService,
+    private sharedService: SharedService) { }
 
   ngOnInit(): void {
+    this.sharedService.messageSource.subscribe(() => {
+      this.reload();
+    });
     this.isMobile = this.utilitiesService.isMobile();
     this.utilitiesService.startSpinner();
     this.getQBUO();
@@ -45,5 +50,10 @@ export class StocksComponent implements OnInit {
       this.load = true;
       this.lastUpdate = new Date().toLocaleString();
     });
+  }
+
+  reload() {
+    this.utilitiesService.startSpinner();
+    this.getQBUO();
   }
 }

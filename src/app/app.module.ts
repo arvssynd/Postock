@@ -12,12 +12,15 @@ import { StockService } from 'src/services/stock.service';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { UtilitiesService } from 'src/utilities/utilities.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { SharedService } from 'src/services/shared.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    StocksComponent
+    StocksComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     StockService,
-    UtilitiesService
+    UtilitiesService,
+    SharedService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

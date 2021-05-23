@@ -1,0 +1,22 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: block;
+  align-items: center;
+  background-color: #eedc00;
+  color: white;
+  font-weight: 600;
+}
+
+.reload {
+  margin: 15px 15px;
+  float: right;
+  color: #0047bb;
+}
+
+.reload-logo:hover {
+  cursor: pointer;
+}
