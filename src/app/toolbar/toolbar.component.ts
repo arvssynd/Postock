@@ -14,6 +14,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   reload() {
-    this.sharedService.messageSource.next(null);
+    this.sharedService.messageSource.next(true);
   }
 }

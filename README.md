@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
+How to launch the app:
+- npm install -g firebase-tools@latest
+- firebase login
+- npm i
+- npm run build
+- firebase serve
+
+How to deploy:
+- firebase deploy
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

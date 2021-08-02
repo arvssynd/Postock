@@ -14,4 +14,9 @@ export class StockService {
     getQBUO(): Observable<any> {
         return this.http.get<any>("https://api.allorigins.win/get?url=" + environment.apiUrl + "QBUO?period=4");
     }
+
+    // mix 3
+    getQBA8A(): Observable<any> {
+        return this.http.get<any>("https://api.allorigins.win/get?url=" + environment.apiUrl + "QBA8A?period=4");
+    }
 }
