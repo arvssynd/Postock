@@ -19,4 +19,9 @@ export class StockService {
     getQBA8A(): Observable<any> {
         return this.http.get<any>("https://api.allorigins.win/get?url=" + environment.apiUrl + "QBA8A?period=4");
     }
+
+    // azionario internazionale
+    getQBFC(): Observable<any> {
+        return this.http.get<any>("https://api.allorigins.win/get?url=" + environment.apiUrl + "QBFC?period=4");
+    }
 }

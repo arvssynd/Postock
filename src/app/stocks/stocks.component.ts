@@ -45,6 +45,15 @@ export class StocksComponent implements OnInit {
       var parser = new DOMParser();
       var doc = parser.parseFromString(data.contents, 'text/html');
       this.stocks.push(this.parsePage(doc));
+      this.getQBFC();
+    })
+  }
+
+  getQBFC() {
+    this.stockService.getQBFC().subscribe(data => {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(data.contents, 'text/html');
+      this.stocks.push(this.parsePage(doc));
       this.utilitiesService.stopSpinner();
       this.load = true;
       this.lastUpdate = new Date().toLocaleString();
